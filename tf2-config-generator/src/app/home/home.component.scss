@@ -1,0 +1,17 @@
+@import '../../styles';
+
+.home {
+  padding: 2.0rem;
+  background-color: white;
+  height: 100%;
+
+  mat-form-field {
+      width: 100%;
+  }
+
+  .buttons {
+    button {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="home">
+  <h1>TF2 Config Generator</h1>
+  <mat-form-field>
+    <textarea matInput class="code" placeholder="autoexec.cfg" cols="80" [(ngModel)]="config"></textarea>
+  </mat-form-field>
+  <div class="buttons">
+    <button mat-raised-button (click)="previewConfig(config)">Preview Config</button>
+    <button mat-raised-button color="primary" (click)="downloadConfig(config)">Download Config</button>
+  </div>
+</div>

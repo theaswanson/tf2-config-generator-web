@@ -1,0 +1,15 @@
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav class="sidebar" mode="side" opened>
+    <a mat-list-item [routerLink]='["/"]'>
+      <img src="../../assets/tf2.svg" [routerLink]='["/"]'/>
+    </a>
+    <div class="links">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]='["/"]'>Home</a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
