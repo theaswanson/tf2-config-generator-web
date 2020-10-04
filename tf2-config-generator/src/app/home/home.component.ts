@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Config } from 'protractor';
+import { ConfigOption, BoolConfigOption, NumberConfigOption } from '../models/config';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   config: string = '';
-
+  mouseFilter: BoolConfigOption = { label: 'Mouse Filter', command: 'm_filter', value: false, description: 'Smooth out mouse movement over 2 frames.' };
+  rawInput: BoolConfigOption = { label: 'Raw Input', command: 'm_rawinput', value: true, description: 'Raw input reads mouse movement directly from the device, bypassing control panel mouse settings, and providing more reliable mouse movement.' };
+  mouseAcceleration: BoolConfigOption = { label: 'Mouse Acceleration', command: 'm_mousespeed', value: false, description: 'Apply acceleration to mouse movement.' };
+  mouseSensitivity: NumberConfigOption = {label: 'Mouse Sensitivity', command: 'sensitivity', value: 3, description: 'Mouse sensitivity.'}
   constructor() { }
 
   ngOnInit(): void {
