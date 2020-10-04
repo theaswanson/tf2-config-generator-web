@@ -1,0 +1,47 @@
+@import '../../styles';
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: mat-color($tf2-config-generator-primary);
+}
+
+.sidebar {
+  background-color: mat-color($tf2-config-generator-primary);
+  display: flex;
+  flex-direction: column;
+  border: none;
+
+  img {
+    height: 5rem;
+    width: 5rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  ul.components {
+    padding: 1.5rem 0;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+
+    .mat-list-item {
+      color: white;
+    }
+
+    
+  }
+}
