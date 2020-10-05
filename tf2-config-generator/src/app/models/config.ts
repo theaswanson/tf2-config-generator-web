@@ -19,4 +19,6 @@ export interface StringConfigOption extends ConfigOption {
 
 export interface NumberConfigOption extends ConfigOption {
   value: Number;
+  min: Number;
+  max: Number;
 }

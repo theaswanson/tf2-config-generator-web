@@ -5,8 +5,12 @@
   background-color: white;
   height: 100%;
 
-  mat-form-field {
-      width: 100%;
+  .config-preview-field {
+    width: 100%;
+
+    .config-preview {
+      height: 40vh;
+    }
   }
 
   .buttons {
@@ -15,9 +19,9 @@
     }
   }
 
-  .mat-tab-group {
-    height: 100%;
-  }
+  // .mat-tab-group {
+  //   height: 50vh;
+  // }
 
   .input-group {
     width: 100%;

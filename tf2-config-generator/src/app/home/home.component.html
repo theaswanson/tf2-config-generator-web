@@ -1,11 +1,15 @@
 <div class="home">
   <h1>TF2 Config Generator</h1>
-  <mat-tab-group>
+  <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
     <mat-tab label="Controls">
       <div class="controls">
         <div class="input-group">
           <mat-label [matTooltip]="mouseSensitivity.description">{{mouseSensitivity.label}}</mat-label>
-          <mat-slider thumbLabel min="0" max="30" step="0.1" [(ngModel)]="mouseSensitivity.value"></mat-slider>
+          <mat-slider thumbLabel min="0" max="20" step="0.1" [value]="mouseSensitivity.value"
+            [(ngModel)]="mouseSensitivity.value"></mat-slider>
+          <mat-form-field>
+            <input matInput type="number" [(ngModel)]="mouseSensitivity.value" />
+          </mat-form-field>
         </div>
         <div class="input-group">
           <mat-label [matTooltip]="mouseFilter.description">{{mouseFilter.label}}</mat-label>
@@ -19,16 +23,27 @@
           <mat-label [matTooltip]="mouseAcceleration.description">{{mouseAcceleration.label}}</mat-label>
           <mat-slide-toggle [(ngModel)]="mouseAcceleration.value"></mat-slide-toggle>
         </div>
+        <div *ngIf="mouseAcceleration.value">
+          <div class="input-group">
+            <mat-label [matTooltip]="mouseAccelerationAmount.description">{{mouseAccelerationAmount.label}}</mat-label>
+            <mat-slider [disabled]="!mouseAcceleration.value" thumbLabel min="1" max="1.4" step="0.05"
+              [(ngModel)]="mouseAccelerationAmount.value"></mat-slider>
+            <mat-form-field>
+              <input matInput [disabled]="!mouseAcceleration.value" type="number"
+                [(ngModel)]="mouseAccelerationAmount.value" />
+            </mat-form-field>
+          </div>
+        </div>
       </div>
     </mat-tab>
-    <mat-tab label="Advanced">
-      <mat-form-field appearance="outline">
-        <textarea matInput class="code" placeholder="autoexec.cfg" cols="80" [(ngModel)]="config"></textarea>
+    <mat-tab label="Preview" #previewTab>
+      <mat-form-field appearance="outline" class="config-preview-field">
+        <textarea matInput disabled class="config-preview code" placeholder="autoexec.cfg" cols="80"
+          [(ngModel)]="config"></textarea>
       </mat-form-field>
-      <div class="buttons">
-        <button mat-raised-button (click)="previewConfig(config)">Preview Config</button>
-        <button mat-raised-button color="primary" (click)="downloadConfig(config)">Download Config</button>
-      </div>
     </mat-tab>
   </mat-tab-group>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="downloadConfig(config)">Download Config</button>
+  </div>
 </div>
